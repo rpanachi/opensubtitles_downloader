@@ -7,12 +7,16 @@ void usage(char *name) {
   exit(1);
 }
 
+// detect endianness 0 = big, 1 = little
+// http://stackoverflow.com/questions/2100331/c-macro-definition-to-determine-big-endian-or-little-endian-machine
 int endianness()
 {
   unsigned int x = 1;
   return (int) (((char *)&x)[0]);
 }
 
+// swap little/big endian
+// reference: http://forums.codeguru.com/showthread.php?292902-C-General-How-do-I-convert-between-big-endian-and-little-endian-values
 long long endian_swap(unsigned long long x)
 {
   x = (x>>56) |
