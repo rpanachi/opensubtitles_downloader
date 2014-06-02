@@ -1,4 +1,18 @@
-downloadsubtitle
-================
+OpenSubtitles Downloader
+========================
 
-Script to download subtitles from OpenSubtitles.org
+OpenSubtitles.org hash calculator and downloader
+
+## Installation
+
+* Copy bin/oshash to /bin or add to your PATH
+
+## Usage
+
+```
+./osdownloader movie.avi pob
+```
+
+## Miscelaneous
+
+* Compatible with mips32 (OpenWRT)
