@@ -50,11 +50,13 @@ unzip -d $tmp_dir $tmp_zip > /dev/null && rm $tmp_zip
 if [ -f $tmp_dir/$output ]; then
   subtitle=$tmp_dir/$output
 else
-  echo "  > Multiple subtitles found: $(ls -1 $tmp_dir/*.srt)"
-  subtitle=$(ls -1 $tmp_dir/*.srt | head -n1)
+  # TODO: find a better way to discover the subtitle file
+  files=$(ls -1 $tmp_dir/*.srt)
+  echo "  > Multiple subtitles found: $files"
+  subtitle=$(echo $files | head -n 1)
   echo "  > Choosing: $subtitle"
 fi
-cp $subtitle $output
+cp "$subtitle" "$output"
 rm -rf $tmp_dir
 
 echo "Subtitle: $output"
